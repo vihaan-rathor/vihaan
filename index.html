@@ -1,18 +1,173 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.4">
-  <style type="text/css">
-    span.s1 {font-kerning: none}
-  </style>
-</head>
-<body>
-<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 24.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Vihaan</b></span></h1>
-<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 24.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Student at FHS</b></span></h1>
-<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 24.0px Times; -webkit-text-stroke: #000000; min-height: 29.0px"><span class="s1"><b></b></span><br></h1>
-</body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vihaan</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 32px 16px 48px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+        background: #eef1f8;
+        color: #1f2430;
+      }
+
+      .page {
+        max-width: 760px;
+        margin: 0 auto;
+        display: grid;
+        gap: 20px;
+      }
+
+      .card {
+        background: #ffffff;
+        border-radius: 28px;
+        box-shadow: 0 6px 20px rgba(40, 50, 90, 0.08);
+      }
+
+      /* Header: photo on the left, name + bio on the right */
+      .header {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        padding: 28px;
+      }
+
+      .photo {
+        flex: 0 0 150px;
+        width: 150px;
+        height: 150px;
+        border-radius: 22px;
+        background: #dfe4f3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      /* When you have a photo, replace the <svg> in .photo with:
+         <img src="photo.jpg" alt="Vihaan"> */
+      .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .photo svg {
+        width: 70%;
+        height: 70%;
+      }
+
+      .header h1 {
+        margin: 0 0 8px;
+        font-size: 2.2rem;
+      }
+
+      .header p {
+        margin: 0;
+        font-size: 1.15rem;
+        color: #4a5266;
+      }
+
+      /* Two square bubbles side by side */
+      .bubbles {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .bubble {
+        aspect-ratio: 1 / 1;
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .bubble h2 {
+        margin: 0 0 10px;
+        font-size: 1.4rem;
+      }
+
+      .bubble p {
+        margin: 0;
+        color: #6b7388;
+      }
+
+      /* Contact box */
+      .contact {
+        padding: 24px 28px;
+      }
+
+      .contact h2 {
+        margin: 0 0 10px;
+        font-size: 1.4rem;
+      }
+
+      .contact p {
+        margin: 0;
+        font-size: 1.05rem;
+      }
+
+      .contact a {
+        color: #3b5bdb;
+        text-decoration: none;
+      }
+
+      .contact a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 560px) {
+        .header {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .bubble {
+          padding: 18px;
+        }
+
+        .bubble h2 {
+          font-size: 1.15rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="card header">
+        <div class="photo">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Photo placeholder">
+            <circle cx="50" cy="36" r="17" fill="#a8b1d1"/>
+            <path d="M16 90c0-19 15-32 34-32s34 13 34 32z" fill="#a8b1d1"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Vihaan</h1>
+          <p>I am a student at FHS.</p>
+        </div>
+      </section>
+
+      <div class="bubbles">
+        <section class="card bubble">
+          <h2>My Life</h2>
+          <p>Coming soon.</p>
+        </section>
+        <section class="card bubble">
+          <h2>Achievements</h2>
+          <p>Coming soon.</p>
+        </section>
+      </div>
+
+      <section class="card contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:vihaan.rathor.1@gmail.com">vihaan.rathor.1@gmail.com</a></p>
+      </section>
+    </main>
+  </body>
 </html>
