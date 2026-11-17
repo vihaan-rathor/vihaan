@@ -123,11 +123,13 @@
       /* Square bubbles */
       .bubbles {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         gap: 28px;
       }
 
       .bubble {
+        min-width: 0;
+        overflow-wrap: anywhere;
         aspect-ratio: 1 / 1;
         padding: 26px;
         display: flex;
@@ -160,6 +162,84 @@
         margin: 0;
         font-weight: 500;
         opacity: 0.8;
+      }
+
+      .timeline {
+        margin: 0 0 14px;
+        padding: 0 0 0 16px;
+        list-style: none;
+        border-left: 3px solid var(--dark);
+        line-height: 1.25;
+      }
+
+      .timeline li {
+        position: relative;
+        margin-bottom: 9px;
+        font-weight: 600;
+      }
+
+      .timeline li::before {
+        content: "";
+        position: absolute;
+        left: -23px;
+        top: 6px;
+        width: 11px;
+        height: 11px;
+        background: #fff;
+        border: 3px solid var(--dark);
+        border-radius: 50%;
+      }
+
+      .timeline span {
+        display: block;
+        font-family: "Oswald", "Impact", "Arial Narrow", sans-serif;
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        opacity: 0.7;
+      }
+
+      .btn-link {
+        align-self: flex-start;
+        margin-top: auto;
+        padding: 9px 18px;
+        font-family: "Oswald", "Impact", "Arial Narrow", sans-serif;
+        font-size: 0.95rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #fff;
+        text-decoration: none;
+        background: var(--dark);
+        border: 3px solid #fff;
+        border-radius: 8px;
+        box-shadow: 3px 3px 0 #000;
+        transition: transform 0.15s ease;
+      }
+
+      .btn-link:hover,
+      .btn-link:focus-visible {
+        transform: translate(-2px, -2px);
+      }
+
+      .wins-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+
+      .wins-list li {
+        position: relative;
+        padding-left: 22px;
+        margin-bottom: 7px;
+      }
+
+      .wins-list li::before {
+        content: "★";
+        position: absolute;
+        left: 0;
       }
 
       /* Contact */
@@ -388,11 +468,14 @@
         }
 
         .bubbles {
-          gap: 16px;
+          grid-template-columns: minmax(0, 1fr);
+          gap: 24px;
         }
 
         .bubble {
-          padding: 16px;
+          aspect-ratio: auto;
+          min-height: 200px;
+          padding: 20px;
         }
 
         .bubble .emoji {
@@ -405,6 +488,15 @@
 
         .bubble p {
           font-size: 0.9rem;
+        }
+
+        .wins-list {
+          font-size: 0.95rem;
+        }
+
+        .wins-list li {
+          padding-left: 16px;
+          margin-bottom: 5px;
         }
 
         .deco.hide-sm {
@@ -450,12 +542,28 @@
         <section class="sticker bubble life">
           <div class="emoji" aria-hidden="true">🔥</div>
           <h2>My Life</h2>
-          <p>Coming soon.</p>
+          <ul class="timeline">
+            <li><span>Born</span> Pune, India</li>
+            <li><span>Age 2</span> Moved to the United States</li>
+            <li><span>Elementary</span> Faria Elementary</li>
+            <li><span>Middle</span> Lawson Middle School</li>
+            <li><span>High school</span> FHS</li>
+          </ul>
+          <a class="btn-link" href="photos.html">📷 View photos</a>
         </section>
         <section class="sticker bubble wins">
           <div class="emoji" aria-hidden="true">🏆</div>
           <h2>Achievements</h2>
-          <p>Coming soon.</p>
+          <ul class="wins-list">
+            <li>Scout of the Year award</li>
+            <li>SPL (Senior Patrol Leader)</li>
+            <li>ASPL for 2 terms</li>
+            <li>NYLT (National Youth Leadership Training)</li>
+            <li>12-day backpacking trek</li>
+            <li>Mile swim</li>
+            <li>2 years of FHS Robotics</li>
+            <li>Participated in FTC regional championships</li>
+          </ul>
         </section>
       </div>
 
