@@ -6,19 +6,17 @@
     <title>Vihaan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
       :root {
-        --bg: #11141b;
-        --panel: #1c212c;
-        --ink: #f3f5f9;
-        --dark: #11141b;
-        --muted: #a5afc4;
-        --orange: #ff6a1a;
-        --steel: #3d8bff;
-        --green: #3ddc84;
-        --yellow: #ffc233;
-        --red: #ff2d2d;
+        --navy: #16263f;
+        --navy-soft: #24395c;
+        --gold: #b08d57;
+        --ink: #1d2430;
+        --muted: #5c6577;
+        --line: #d9dde5;
+        --paper: #ffffff;
+        --bg: #f4f5f7;
       }
 
       * {
@@ -31,67 +29,42 @@
 
       body {
         margin: 0;
-        padding: 40px 16px 120px;
-        font-family: "Barlow", "Segoe UI", Arial, sans-serif;
+        font-family: "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
         font-size: 1.05rem;
+        line-height: 1.55;
         color: var(--ink);
-        background-color: var(--bg);
-        background-image:
-          linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-          repeating-linear-gradient(135deg, transparent 0 22px, rgba(255, 106, 26, 0.05) 22px 44px);
-        background-size: 40px 40px, 40px 40px, auto;
-        overflow-x: hidden;
+        background: var(--bg);
       }
 
-      h1, h2, .tag, .yt {
-        font-family: "Oswald", "Impact", "Arial Narrow", sans-serif;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+      h1, h2 {
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-weight: 600;
       }
 
-      .page {
-        position: relative;
-        z-index: 1;
-        max-width: 780px;
-        margin: 0 auto;
-        display: grid;
-        gap: 28px;
+      /* Header band */
+      .masthead {
+        color: #fff;
+        background: var(--navy);
+        border-bottom: 4px solid var(--gold);
       }
 
-      /* Die-cut sticker look: white edge, hard black shadow */
-      .sticker {
-        color: var(--dark);
-        border: 5px solid #fff;
-        border-radius: 12px;
-        box-shadow: 7px 7px 0 #000;
-        transition: transform 0.2s ease;
-      }
-
-      .sticker:hover {
-        transform: rotate(0deg) scale(1.02) !important;
-      }
-
-      /* Header */
-      .header {
+      .masthead-inner {
         display: flex;
         align-items: center;
-        gap: 28px;
-        padding: 26px;
-        background: var(--orange);
-        transform: rotate(-1deg);
+        gap: 32px;
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 40px 24px;
       }
 
       .photo {
-        flex: 0 0 170px;
-        width: 170px;
-        height: 170px;
-        border-radius: 10px;
-        border: 5px solid #fff;
-        box-shadow: 5px 5px 0 #000;
+        flex: 0 0 160px;
+        width: 160px;
+        height: 160px;
         overflow: hidden;
-        transform: rotate(2deg);
-        background: #fff;
+        border: 3px solid #fff;
+        border-radius: 4px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
       }
 
       .photo img {
@@ -101,426 +74,316 @@
         object-fit: cover;
       }
 
-      .header h1 {
-        margin: 0 0 12px;
-        font-size: 3.2rem;
-        font-weight: 700;
-        line-height: 1;
-        text-shadow: 3px 3px 0 rgba(255, 255, 255, 0.35);
+      .masthead h1 {
+        margin: 0 0 6px;
+        font-size: 2.8rem;
+        line-height: 1.1;
+        letter-spacing: 0.5px;
       }
 
-      .header .tag {
-        display: inline-block;
+      .masthead p {
         margin: 0;
-        padding: 8px 16px;
-        font-size: 1.05rem;
-        font-weight: 500;
-        color: #fff;
-        background: var(--dark);
-        border-radius: 6px;
+        font-size: 1.15rem;
+        color: #d4dbe8;
       }
 
-      /* Square bubbles */
-      .bubbles {
+      /* Page layout */
+      .page {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 40px 24px 24px;
+        display: grid;
+        gap: 28px;
+      }
+
+      .columns {
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         gap: 28px;
       }
 
-      .bubble {
+      .card {
         min-width: 0;
-        overflow-wrap: anywhere;
-        aspect-ratio: 1 / 1;
-        padding: 26px;
-        display: flex;
-        flex-direction: column;
+        padding: 28px;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-top: 3px solid var(--navy);
+        border-radius: 4px;
+        box-shadow: 0 1px 3px rgba(22, 38, 63, 0.08);
       }
 
-      .bubble.life {
-        background: var(--steel);
-        transform: rotate(-1.5deg);
+      .card h2 {
+        margin: 0 0 18px;
+        padding-bottom: 10px;
+        font-size: 1.45rem;
+        color: var(--navy);
+        border-bottom: 1px solid var(--line);
       }
 
-      .bubble.wins {
-        background: var(--yellow);
-        transform: rotate(1.5deg);
-      }
-
-      .bubble .emoji {
-        font-size: 2.6rem;
-        line-height: 1;
-        margin-bottom: 10px;
-      }
-
-      .bubble h2 {
-        margin: 0 0 8px;
-        font-size: 1.7rem;
-        font-weight: 700;
-      }
-
-      .bubble p {
-        margin: 0;
-        font-weight: 500;
-        opacity: 0.8;
-      }
-
+      /* Background timeline */
       .timeline {
-        margin: 0 0 14px;
-        padding: 0 0 0 16px;
+        margin: 0 0 22px;
+        padding: 0 0 0 18px;
         list-style: none;
-        border-left: 3px solid var(--dark);
-        line-height: 1.25;
+        border-left: 2px solid var(--gold);
       }
 
       .timeline li {
         position: relative;
-        margin-bottom: 9px;
-        font-weight: 600;
+        margin-bottom: 14px;
+        font-weight: 500;
       }
 
       .timeline li::before {
         content: "";
         position: absolute;
-        left: -23px;
-        top: 6px;
-        width: 11px;
-        height: 11px;
-        background: #fff;
-        border: 3px solid var(--dark);
+        left: -24px;
+        top: 9px;
+        width: 10px;
+        height: 10px;
+        background: var(--paper);
+        border: 2px solid var(--gold);
         border-radius: 50%;
       }
 
       .timeline span {
         display: block;
-        font-family: "Oswald", "Impact", "Arial Narrow", sans-serif;
         font-size: 0.78rem;
-        font-weight: 500;
-        letter-spacing: 1px;
+        font-weight: 600;
+        letter-spacing: 1.2px;
         text-transform: uppercase;
-        opacity: 0.7;
+        color: var(--muted);
       }
 
-      .btn-link {
-        align-self: flex-start;
-        margin-top: auto;
-        padding: 9px 18px;
-        font-family: "Oswald", "Impact", "Arial Narrow", sans-serif;
+      .button {
+        display: inline-block;
+        padding: 10px 22px;
         font-size: 0.95rem;
-        letter-spacing: 1px;
-        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.4px;
         color: #fff;
         text-decoration: none;
-        background: var(--dark);
-        border: 3px solid #fff;
-        border-radius: 8px;
-        box-shadow: 3px 3px 0 #000;
-        transition: transform 0.15s ease;
+        background: var(--navy);
+        border: 1px solid var(--navy);
+        border-radius: 4px;
+        transition: background 0.15s ease;
       }
 
-      .btn-link:hover,
-      .btn-link:focus-visible {
-        transform: translate(-2px, -2px);
+      .button:hover,
+      .button:focus-visible {
+        background: var(--navy-soft);
       }
 
-      .wins-list {
+      .button.outline {
+        color: var(--navy);
+        background: transparent;
+      }
+
+      .button.outline:hover,
+      .button.outline:focus-visible {
+        color: #fff;
+        background: var(--navy);
+      }
+
+      /* Achievements */
+      .list {
         margin: 0;
         padding: 0;
         list-style: none;
-        font-weight: 600;
-        line-height: 1.25;
       }
 
-      .wins-list li {
+      .list li {
         position: relative;
-        padding-left: 22px;
-        margin-bottom: 7px;
+        padding: 7px 0 7px 22px;
+        border-bottom: 1px solid #eceef2;
       }
 
-      .wins-list li::before {
-        content: "★";
+      .list li:last-child {
+        border-bottom: 0;
+      }
+
+      .list li::before {
+        content: "";
         position: absolute;
-        left: 0;
+        left: 2px;
+        top: 17px;
+        width: 7px;
+        height: 7px;
+        background: var(--gold);
+        transform: rotate(45deg);
       }
 
       /* Skills */
-      .skills {
-        padding: 24px 28px;
-        background: #f3f5f9;
-        transform: rotate(-0.6deg);
-      }
-
-      .skills h2 {
-        margin: 0 0 14px;
-        font-size: 1.7rem;
-        font-weight: 700;
-      }
-
-      .chips {
+      .skills-list {
         display: flex;
         flex-wrap: wrap;
-        gap: 14px;
+        gap: 10px;
         margin: 0;
         padding: 0;
         list-style: none;
       }
 
-      .chip {
-        padding: 9px 16px;
-        font-family: "Oswald", "Impact", "Arial Narrow", sans-serif;
-        font-size: 1rem;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        color: var(--dark);
-        border: 3px solid var(--dark);
-        border-radius: 8px;
-        box-shadow: 3px 3px 0 #000;
+      .skills-list li {
+        padding: 7px 16px;
+        font-weight: 500;
+        color: var(--navy);
+        background: #eef1f6;
+        border: 1px solid #cfd6e2;
+        border-radius: 999px;
       }
-
-      .chip:nth-child(1) { background: var(--orange); transform: rotate(-1.5deg); }
-      .chip:nth-child(2) { background: var(--steel); transform: rotate(1deg); }
-      .chip:nth-child(3) { background: var(--green); transform: rotate(-1deg); }
-      .chip:nth-child(4) { background: var(--yellow); transform: rotate(1.5deg); }
 
       /* Quote */
       .quote {
         margin: 0;
-        padding: 24px 28px;
-        color: var(--ink);
-        background: var(--panel);
-        border-left: 10px solid var(--orange);
-        transform: rotate(0.5deg);
+        padding: 8px 0 8px 24px;
+        border-left: 4px solid var(--gold);
       }
 
       .quote p {
-        margin: 0 0 10px;
-        font-size: 1.35rem;
-        font-weight: 600;
-        line-height: 1.35;
+        margin: 0 0 6px;
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: 1.4rem;
+        font-style: italic;
+        line-height: 1.4;
+        color: var(--navy);
       }
 
       .quote cite {
-        color: var(--muted);
         font-style: normal;
-        font-weight: 500;
+        color: var(--muted);
       }
 
-      /* Contact */
-      .contact {
-        padding: 24px 28px;
-        background: var(--green);
-        transform: rotate(0.6deg);
+      /* Contact and links */
+      .contact-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
       }
 
-      .contact h2 {
-        margin: 0 0 10px;
-        font-size: 1.7rem;
-        font-weight: 700;
-      }
-
-      .contact p {
+      .contact-row p {
         margin: 0;
-        font-weight: 500;
       }
 
-      .contact a {
-        color: var(--dark);
-        font-weight: 700;
-        text-decoration: underline;
-        text-decoration-thickness: 3px;
-        text-underline-offset: 4px;
+      .contact-row a:not(.button) {
+        color: var(--navy);
+        font-weight: 600;
+        text-underline-offset: 3px;
         word-break: break-all;
       }
 
-      /* YouTube sticker */
-      .footer {
-        display: flex;
-        justify-content: center;
+      footer {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 8px 24px 40px;
+        font-size: 0.9rem;
+        text-align: center;
+        color: var(--muted);
       }
 
-      .yt {
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
-        padding: 14px 28px;
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: #fff;
-        text-decoration: none;
-        background: var(--red);
-        border: 5px solid #fff;
-        border-radius: 10px;
-        box-shadow: 6px 6px 0 #000;
-        transform: rotate(-1.5deg);
-        transition: transform 0.2s ease;
-      }
-
-      .yt:hover {
-        transform: rotate(1deg) scale(1.06);
-      }
-
-      .yt .play {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 34px;
-        height: 24px;
-        background: #fff;
-        color: var(--red);
-        border-radius: 6px;
-        font-size: 0.85rem;
-      }
-
-      /* Floating decorative stickers */
-      .deco {
-        position: fixed;
-        z-index: 0;
-        font-size: 2.6rem;
-        pointer-events: none;
-        user-select: none;
-        filter: drop-shadow(3px 4px 0 rgba(0, 0, 0, 0.6));
-        animation: floaty 6s ease-in-out infinite;
-      }
-
-      @keyframes floaty {
-        0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
-        50% { transform: translateY(-10px) rotate(var(--r, 0deg)); }
-      }
-
-      @media (max-width: 600px) {
-        .header {
+      @media (max-width: 720px) {
+        .masthead-inner {
           flex-direction: column;
           text-align: center;
+          padding: 32px 20px;
         }
 
-        .header h1 {
-          font-size: 2.5rem;
+        .masthead h1 {
+          font-size: 2.3rem;
         }
 
-        .bubbles {
+        .columns {
           grid-template-columns: minmax(0, 1fr);
-          gap: 24px;
         }
 
-        .bubble {
-          aspect-ratio: auto;
-          min-height: 200px;
-          padding: 20px;
+        .page {
+          padding: 28px 16px 16px;
         }
 
-        .bubble .emoji {
-          font-size: 2rem;
+        .card {
+          padding: 22px;
         }
 
-        .bubble h2 {
-          font-size: 1.2rem;
-        }
-
-        .bubble p {
-          font-size: 0.9rem;
-        }
-
-        .wins-list {
-          font-size: 0.95rem;
-        }
-
-        .wins-list li {
-          padding-left: 16px;
-          margin-bottom: 5px;
-        }
-
-        .deco.hide-sm {
-          display: none;
+        .contact-row {
+          flex-direction: column;
+          align-items: flex-start;
         }
       }
 
       @media (prefers-reduced-motion: reduce) {
-        .deco {
-          animation: none;
-        }
-
-        .sticker,
-        .yt,
-        .btn-link {
+        .button {
           transition: none;
         }
       }
     </style>
   </head>
   <body>
-    <!-- Decorative stickers (purely visual) -->
-    <span class="deco" style="top: 6%; left: 4%; --r: -12deg;" aria-hidden="true">🔥</span>
-    <span class="deco" style="top: 14%; right: 5%; --r: 14deg; animation-delay: -2s;" aria-hidden="true">⚡</span>
-    <span class="deco hide-sm" style="top: 46%; left: 2%; --r: 8deg; animation-delay: -1s;" aria-hidden="true">🤖</span>
-    <span class="deco hide-sm" style="top: 55%; right: 2%; --r: -10deg; animation-delay: -3s;" aria-hidden="true">⚽</span>
-    <span class="deco" style="bottom: 18%; left: 8%; --r: 10deg; animation-delay: -4s;" aria-hidden="true">💪</span>
-    <span class="deco" style="bottom: 8%; right: 6%; --r: -8deg; animation-delay: -5s;" aria-hidden="true">🏆</span>
-
-    <main class="page">
-      <section class="sticker header">
+    <header class="masthead">
+      <div class="masthead-inner">
         <div class="photo">
-          <img src="photo.jpg" alt="Vihaan holding a sparkler">
+          <img src="photo.jpg" alt="Portrait of Vihaan holding a sparkler">
         </div>
         <div>
           <h1>Vihaan</h1>
-          <p class="tag">I am a student at FHS.</p>
+          <p>Student at FHS</p>
         </div>
-      </section>
+      </div>
+    </header>
 
-      <div class="bubbles">
-        <section class="sticker bubble life">
-          <div class="emoji" aria-hidden="true">🔥</div>
-          <h2>My Life</h2>
+    <main class="page">
+      <div class="columns">
+        <section class="card" aria-labelledby="background-title">
+          <h2 id="background-title">Background</h2>
           <ul class="timeline">
             <li><span>Born</span> Pune, India</li>
             <li><span>Age 2</span> Moved to the United States</li>
-            <li><span>Elementary</span> Faria Elementary</li>
-            <li><span>Middle</span> Lawson Middle School</li>
-            <li><span>High school</span> FHS</li>
+            <li><span>Elementary School</span> Faria Elementary</li>
+            <li><span>Middle School</span> Lawson Middle School</li>
+            <li><span>High School</span> FHS</li>
           </ul>
-          <a class="btn-link" href="photos.html">📷 View photos</a>
+          <a class="button" href="photos.html">View Photo Gallery</a>
         </section>
-        <section class="sticker bubble wins">
-          <div class="emoji" aria-hidden="true">🏆</div>
-          <h2>Achievements</h2>
-          <ul class="wins-list">
+
+        <section class="card" aria-labelledby="achievements-title">
+          <h2 id="achievements-title">Achievements</h2>
+          <ul class="list">
             <li>Scout of the Year award</li>
-            <li>SPL (Senior Patrol Leader)</li>
-            <li>ASPL for 2 terms</li>
-            <li>NYLT (National Youth Leadership Training)</li>
+            <li>Senior Patrol Leader (SPL)</li>
+            <li>Assistant Senior Patrol Leader (ASPL), two terms</li>
+            <li>National Youth Leadership Training (NYLT)</li>
             <li>12-day backpacking trek</li>
-            <li>Mile swim</li>
-            <li>2 years of FHS Robotics</li>
-            <li>Participated in FTC regional championships</li>
+            <li>One-mile swim</li>
+            <li>Two years of FHS Robotics</li>
+            <li>Participant, FTC regional championships</li>
           </ul>
         </section>
       </div>
 
-      <section class="sticker skills">
-        <h2>⚙️ Skills</h2>
-        <ul class="chips">
-          <li class="chip">Leadership Experience</li>
-          <li class="chip">Math &amp; Science</li>
-          <li class="chip">Communication</li>
-          <li class="chip">Coding</li>
+      <section class="card" aria-labelledby="skills-title">
+        <h2 id="skills-title">Skills</h2>
+        <ul class="skills-list">
+          <li>Leadership Experience</li>
+          <li>Mathematics &amp; Science</li>
+          <li>Communication</li>
+          <li>Coding</li>
         </ul>
       </section>
 
-      <blockquote class="sticker quote">
+      <blockquote class="quote">
         <p>&ldquo;The only way to do great work is to love what you do.&rdquo;</p>
         <cite>&mdash; Steve Jobs</cite>
       </blockquote>
 
-      <section class="sticker contact">
-        <h2>📩 Contact</h2>
-        <p>Email: <a href="mailto:vihaan.rathor.1@gmail.com">vihaan.rathor.1@gmail.com</a></p>
+      <section class="card" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact</h2>
+        <div class="contact-row">
+          <p>Email: <a href="mailto:vihaan.rathor.1@gmail.com">vihaan.rathor.1@gmail.com</a></p>
+          <a class="button outline" href="https://www.youtube.com/@vihaanrathor1016" target="_blank" rel="noopener noreferrer">YouTube Channel</a>
+        </div>
       </section>
-
-      <div class="footer">
-        <a class="yt" href="https://www.youtube.com/@vihaanrathor1016" target="_blank" rel="noopener noreferrer">
-          <span class="play" aria-hidden="true">▶</span>
-          Watch my YouTube
-        </a>
-      </div>
     </main>
+
+    <footer>&copy; 2026 Vihaan</footer>
   </body>
 </html>
