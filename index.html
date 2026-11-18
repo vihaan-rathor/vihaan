@@ -44,7 +44,7 @@
         overflow-x: hidden;
       }
 
-      h1, h2, .tag, .yt, .btn {
+      h1, h2, .tag, .yt {
         font-family: "Oswald", "Impact", "Arial Narrow", sans-serif;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -242,6 +242,68 @@
         left: 0;
       }
 
+      /* Skills */
+      .skills {
+        padding: 24px 28px;
+        background: #f3f5f9;
+        transform: rotate(-0.6deg);
+      }
+
+      .skills h2 {
+        margin: 0 0 14px;
+        font-size: 1.7rem;
+        font-weight: 700;
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .chip {
+        padding: 9px 16px;
+        font-family: "Oswald", "Impact", "Arial Narrow", sans-serif;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--dark);
+        border: 3px solid var(--dark);
+        border-radius: 8px;
+        box-shadow: 3px 3px 0 #000;
+      }
+
+      .chip:nth-child(1) { background: var(--orange); transform: rotate(-1.5deg); }
+      .chip:nth-child(2) { background: var(--steel); transform: rotate(1deg); }
+      .chip:nth-child(3) { background: var(--green); transform: rotate(-1deg); }
+      .chip:nth-child(4) { background: var(--yellow); transform: rotate(1.5deg); }
+
+      /* Quote */
+      .quote {
+        margin: 0;
+        padding: 24px 28px;
+        color: var(--ink);
+        background: var(--panel);
+        border-left: 10px solid var(--orange);
+        transform: rotate(0.5deg);
+      }
+
+      .quote p {
+        margin: 0 0 10px;
+        font-size: 1.35rem;
+        font-weight: 600;
+        line-height: 1.35;
+      }
+
+      .quote cite {
+        color: var(--muted);
+        font-style: normal;
+        font-weight: 500;
+      }
+
       /* Contact */
       .contact {
         padding: 24px 28px;
@@ -324,139 +386,6 @@
         50% { transform: translateY(-10px) rotate(var(--r, 0deg)); }
       }
 
-      /* Secret button */
-      .secret {
-        position: fixed;
-        left: 14px;
-        bottom: 14px;
-        z-index: 5;
-        width: 44px;
-        height: 44px;
-        padding: 0;
-        font-size: 1.3rem;
-        line-height: 1;
-        cursor: pointer;
-        background: var(--panel);
-        border: 3px solid rgba(255, 255, 255, 0.25);
-        border-radius: 8px;
-        opacity: 0.35;
-        transition: opacity 0.2s ease, transform 0.2s ease;
-      }
-
-      .secret:hover,
-      .secret:focus-visible {
-        opacity: 1;
-        transform: rotate(-10deg) scale(1.15);
-      }
-
-      /* Game modal */
-      .overlay {
-        position: fixed;
-        inset: 0;
-        z-index: 10;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        padding: 16px;
-        background: rgba(0, 0, 0, 0.75);
-      }
-
-      .overlay.open {
-        display: flex;
-      }
-
-      .game {
-        width: 100%;
-        max-width: 480px;
-        padding: 22px;
-        background: var(--panel);
-        color: var(--ink);
-        text-align: center;
-        transform: none;
-      }
-
-      .game h2 {
-        margin: 0 0 4px;
-        font-size: 1.8rem;
-        color: var(--orange);
-      }
-
-      .game .hint {
-        margin: 0 0 12px;
-        color: var(--muted);
-      }
-
-      .stats {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-
-      .arena {
-        position: relative;
-        height: 280px;
-        overflow: hidden;
-        background: #0a0c11;
-        border: 3px solid rgba(255, 255, 255, 0.2);
-        border-radius: 8px;
-        touch-action: manipulation;
-      }
-
-      .arena .msg {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 16px;
-        color: #fff;
-        font-size: 1.15rem;
-      }
-
-      .target {
-        position: absolute;
-        width: 52px;
-        height: 52px;
-        padding: 0;
-        font-size: 2rem;
-        line-height: 1;
-        cursor: pointer;
-        background: none;
-        border: 0;
-        animation: pop 0.25s ease;
-      }
-
-      @keyframes pop {
-        from { transform: scale(0.2); }
-        to { transform: scale(1); }
-      }
-
-      .btn {
-        margin-top: 14px;
-        margin-right: 6px;
-        padding: 10px 22px;
-        font-size: 1rem;
-        font-weight: 500;
-        color: var(--dark);
-        cursor: pointer;
-        background: var(--orange);
-        border: 4px solid #fff;
-        border-radius: 8px;
-        box-shadow: 4px 4px 0 #000;
-      }
-
-      .btn:disabled {
-        opacity: 0.6;
-        cursor: default;
-      }
-
-      .btn.close {
-        background: #fff;
-      }
-
       @media (max-width: 600px) {
         .header {
           flex-direction: column;
@@ -505,14 +434,13 @@
       }
 
       @media (prefers-reduced-motion: reduce) {
-        .deco,
-        .target {
+        .deco {
           animation: none;
         }
 
         .sticker,
         .yt,
-        .secret {
+        .btn-link {
           transition: none;
         }
       }
@@ -522,7 +450,7 @@
     <!-- Decorative stickers (purely visual) -->
     <span class="deco" style="top: 6%; left: 4%; --r: -12deg;" aria-hidden="true">🔥</span>
     <span class="deco" style="top: 14%; right: 5%; --r: 14deg; animation-delay: -2s;" aria-hidden="true">⚡</span>
-    <span class="deco hide-sm" style="top: 46%; left: 2%; --r: 8deg; animation-delay: -1s;" aria-hidden="true">🎮</span>
+    <span class="deco hide-sm" style="top: 46%; left: 2%; --r: 8deg; animation-delay: -1s;" aria-hidden="true">🤖</span>
     <span class="deco hide-sm" style="top: 55%; right: 2%; --r: -10deg; animation-delay: -3s;" aria-hidden="true">⚽</span>
     <span class="deco" style="bottom: 18%; left: 8%; --r: 10deg; animation-delay: -4s;" aria-hidden="true">💪</span>
     <span class="deco" style="bottom: 8%; right: 6%; --r: -8deg; animation-delay: -5s;" aria-hidden="true">🏆</span>
@@ -567,6 +495,21 @@
         </section>
       </div>
 
+      <section class="sticker skills">
+        <h2>⚙️ Skills</h2>
+        <ul class="chips">
+          <li class="chip">Leadership Experience</li>
+          <li class="chip">Math &amp; Science</li>
+          <li class="chip">Communication</li>
+          <li class="chip">Coding</li>
+        </ul>
+      </section>
+
+      <blockquote class="sticker quote">
+        <p>&ldquo;The only way to do great work is to love what you do.&rdquo;</p>
+        <cite>&mdash; Steve Jobs</cite>
+      </blockquote>
+
       <section class="sticker contact">
         <h2>📩 Contact</h2>
         <p>Email: <a href="mailto:vihaan.rathor.1@gmail.com">vihaan.rathor.1@gmail.com</a></p>
@@ -579,141 +522,5 @@
         </a>
       </div>
     </main>
-
-    <!-- Secret game button -->
-    <button class="secret" id="secret" type="button" aria-label="Secret game" title="Psst...">🎮</button>
-
-    <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="game-title">
-      <div class="sticker game">
-        <h2 id="game-title">⚡ Sparkle Catcher ⚡</h2>
-        <p class="hint">Tap the sparkles before they vanish. You have 20 seconds!</p>
-        <div class="stats">
-          <span>Score: <span id="score">0</span></span>
-          <span>Best: <span id="best">0</span></span>
-          <span>Time: <span id="time">20</span></span>
-        </div>
-        <div class="arena" id="arena">
-          <div class="msg" id="msg">Press Start to play!</div>
-        </div>
-        <button class="btn" id="start" type="button">Start</button>
-        <button class="btn close" id="close" type="button">Close</button>
-      </div>
-    </div>
-
-    <script>
-      (function () {
-        var overlay = document.getElementById('overlay');
-        var arena = document.getElementById('arena');
-        var msg = document.getElementById('msg');
-        var scoreEl = document.getElementById('score');
-        var bestEl = document.getElementById('best');
-        var timeEl = document.getElementById('time');
-        var startBtn = document.getElementById('start');
-        var secretBtn = document.getElementById('secret');
-
-        var DURATION = 20;
-        var score = 0;
-        var timeLeft = DURATION;
-        var best = 0;
-        var tickTimer = null;
-        var moveTimer = null;
-        var running = false;
-        var sparkles = ['✨', '⭐', '🌟', '💫'];
-
-        try {
-          best = parseInt(localStorage.getItem('sparkleBest'), 10) || 0;
-        } catch (e) {}
-        bestEl.textContent = best;
-
-        function clearTarget() {
-          var old = arena.querySelector('.target');
-          if (old) old.remove();
-        }
-
-        function spawn() {
-          clearTarget();
-          var t = document.createElement('button');
-          t.className = 'target';
-          t.type = 'button';
-          t.setAttribute('aria-label', 'Sparkle');
-          t.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
-          var maxX = arena.clientWidth - 52;
-          var maxY = arena.clientHeight - 52;
-          t.style.left = Math.floor(Math.random() * maxX) + 'px';
-          t.style.top = Math.floor(Math.random() * maxY) + 'px';
-          t.addEventListener('click', function (e) {
-            e.stopPropagation();
-            if (!running) return;
-            score++;
-            scoreEl.textContent = score;
-            schedule();
-          });
-          arena.appendChild(t);
-        }
-
-        function schedule() {
-          clearTimeout(moveTimer);
-          spawn();
-          // Gets faster as your score grows
-          var delay = Math.max(450, 1000 - score * 25);
-          moveTimer = setTimeout(schedule, delay);
-        }
-
-        function endGame() {
-          running = false;
-          clearInterval(tickTimer);
-          clearTimeout(moveTimer);
-          clearTarget();
-          if (score > best) {
-            best = score;
-            bestEl.textContent = best;
-            try { localStorage.setItem('sparkleBest', String(best)); } catch (e) {}
-            msg.textContent = '🎉 New best: ' + score + '!';
-          } else {
-            msg.textContent = 'Time! You caught ' + score + ' sparkles.';
-          }
-          msg.style.display = 'flex';
-          startBtn.textContent = 'Play again';
-          startBtn.disabled = false;
-        }
-
-        function startGame() {
-          score = 0;
-          timeLeft = DURATION;
-          scoreEl.textContent = 0;
-          timeEl.textContent = timeLeft;
-          msg.style.display = 'none';
-          startBtn.disabled = true;
-          running = true;
-          schedule();
-          tickTimer = setInterval(function () {
-            timeLeft--;
-            timeEl.textContent = timeLeft;
-            if (timeLeft <= 0) endGame();
-          }, 1000);
-        }
-
-        function openGame() {
-          overlay.classList.add('open');
-          startBtn.focus();
-        }
-
-        function closeGame() {
-          if (running) endGame();
-          overlay.classList.remove('open');
-          secretBtn.focus();
-        }
-
-        secretBtn.addEventListener('click', openGame);
-        startBtn.addEventListener('click', startGame);
-        document.getElementById('close').addEventListener('click', closeGame);
-        overlay.addEventListener('click', function (e) {
-          if (e.target === overlay) closeGame();
-        });
-        document.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape' && overlay.classList.contains('open')) closeGame();
-        });
-      })();
-    </script>
   </body>
 </html>
